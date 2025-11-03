@@ -1,7 +1,35 @@
-# 25-26 Assignment template
+# JWT를 활용한 REST API 만들기
 
-## 사용하는 방법
+## 과제 요구사항
+- 원하는 주제로 CRUD 구현
+- 설계한 ERD 사진 첨부
+- Postman 테스트 후 결과 첨부
+- 기본적인 [자바 컨벤션](https://newwisdom.tistory.com/m/96)을 준수합니다.
+  - intelliJ의 코드 자동 정렬 기능을 사용합니다 (단축키를 찾아봅시다!)
+  - 불필요한 개행, 불필요한 공백을 주의합니다.
 
-1. 레포를 생성할 때 해당 템플릿을 선택합니다.
-2. `.github/CODEOWNER`에 해당 파트 Core 멤버만 남깁니다.
-3. [`Auto assign`](https://github.com/apps/auto-assign) 앱을 등록합니다.
+---
+
+## 제출 형식
+- git clone 후, 본인 이름으로 된 폴더를 생성하여 과제를 구현합니다.
+- 본인 이름으로 된 폴더에 Postman, ERD, 구현 프로젝트를 하위 폴더로 나누어 제출합니다.
+
+---
+
+## PR 요구사항
+- PR 제목: 25-26-Backend-Assignment-04_본인이름
+- PR 본문: 본인이 이해한 JWT의 동작 흐름에 대해 적어 제출합니다. (5줄 이상)
+
+---
+
+## 추가 진행방식
+- 구현하고 싶은 기능이 있다면 필요한 외부 라이브러리(ex: Validation 등)를 자유롭게 사용하여 구현합니다.
+- RefreshToken에 대해 공부하여 적용합니다(선택형, 필수X)
+  - RefreshToken을 통해 AccessToken을 재발급하는 기능을 구현합니다.
+- [커밋 컨벤션 스타일](https://sungwookoo.tistory.com/1)을 적용하는 연습을 해봅시다!
+
+---
+
+## 과제 마감 기한
+- 최초 과제 제출: 11월 9일 (일) 23:59:59
+- 리팩토링 제출: 11월 12일 (수) 23:59:59

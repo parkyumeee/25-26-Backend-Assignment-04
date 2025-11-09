@@ -77,5 +77,7 @@ public class BookerService {
     }
 
     @Transactional
-    public void delete(Long id) {bookerRepository.deleteById(id);}
+    public void delete(Long id) {
+        bookerRepository.deleteById(id);
+    }
 }

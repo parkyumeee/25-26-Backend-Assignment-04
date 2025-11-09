@@ -56,7 +56,7 @@ public class TokenProvider {
     public Authentication getAuthentication(String accessToken) {
         Claims claims = parseClaims(accessToken);
 
-        if(claims.get(ROLE_CLAIM) == null) {
+        if (claims.get(ROLE_CLAIM) == null) {
             throw new RuntimeException("권한 정보가 없는 토큰입니다.");
         }
 

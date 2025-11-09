@@ -37,7 +37,7 @@ public class BookerController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<BookerInfoResponseDto> update(@PathVariable Long id,
-                                                              @Valid @RequestBody BookerBookingDto bookerBookingDto) {
+                                                        @Valid @RequestBody BookerBookingDto bookerBookingDto) {
         return ResponseEntity.status(HttpStatus.OK).body(bookerService.update(id, bookerBookingDto));
     }
 

@@ -1,25 +1,27 @@
 package com.gdg.jwtexample.domain;
 
+import com.gdg.jwtexample.dto.UserDto.UserRequestDto;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.OneToMany;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "booker")
 @Getter
 @NoArgsConstructor
-public class Booker {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,30 +33,27 @@ public class Booker {
     @Column(name = "BOOKER_TEL", nullable = false, unique = true)
     private String phone;
 
-    @Column(name = "BOOKER_DATE", nullable = false)
-    private LocalDate date;
-
-    @Column(name = "BOOKER_TIME", nullable = false)
-    private LocalTime time;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "BOOKER_ROLE", nullable = false)
-    private Role role;
+    private Authority role;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Booking> bookings = new ArrayList<>();
 
     @Builder
-    public Booker(String name, String phone, LocalDate date, LocalTime time, Role role) {
+    public User(String name, String phone, Authority role) {
         this.name = name;
         this.phone = phone;
-        this.date = date;
-        this.time = time;
         this.role = role;
     }
 
-    public void update(String name, String phone, LocalDate date, LocalTime time, Role role) {
-        this.name = name;
-        this.phone = phone;
-        this.date = date;
-        this.time = time;
+    public void update(UserRequestDto userRequestDto, Authority role) {
+        this.name = userRequestDto.getName();
+        this.phone = userRequestDto.getPhone();
+        this.role = role;
+    }
+
+    public void updateRole(Authority role) {
         this.role = role;
     }
 }

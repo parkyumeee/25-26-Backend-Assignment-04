@@ -1,6 +1,6 @@
 package com.gdg.jwtexample.jwt;
 
-import com.gdg.jwtexample.domain.Booker;
+import com.gdg.jwtexample.domain.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -41,13 +41,13 @@ public class TokenProvider {
         this.accessTokenValidityTime = accessTokenValidityTime;
     }
 
-    public String createAccessToken(Booker booker) {
-        Long nowTime = (new Date().getTime());
+    public String createAccessToken(User user) {
+        long nowTime = (new Date().getTime());
         Date accessTokenExpiredTime = new Date(nowTime + accessTokenValidityTime);
 
         return Jwts.builder()
-                .subject(booker.getId().toString())
-                .claim(ROLE_CLAIM, booker.getRole().name())
+                .subject(user.getId().toString())
+                .claim(ROLE_CLAIM, user.getRole().name())
                 .expiration(accessTokenExpiredTime)
                 .signWith(key)
                 .compact();

@@ -1,4 +1,4 @@
-package com.gdg.jwtexample.dto;
+package com.gdg.jwtexample.dto.UserDto;
 
 import lombok.Builder;
 import lombok.Getter;
